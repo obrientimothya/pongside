@@ -1,0 +1,11 @@
+<% if (@match.a_score >= 11 || @match.b_score >= 11) && ( (@match.a_score - @match.b_score) >= 2 || (@match.b_score - @match.a_score) >= 2 ) %>
+  var createGame = confirm("The game appears to be over. Do you want to save the game scores?");
+  if(createGame == true){
+    $.getScript("/matches/<%= @match.id %>/create_game");
+  } else {
+    $("#players").html("<%= j render("matches/players") %>");
+    $("#games").html("<%= j render("games/list") %>");
+  }
+<% else %>
+  $("#players").html("<%= j render("matches/players") %>");
+<% end %>

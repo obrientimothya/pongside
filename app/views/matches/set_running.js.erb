@@ -1,0 +1,5 @@
+<% if @table_occupied %>
+  alert("A match is alredy running on this table. The other match must be completed before this match can start.");
+<% else %>
+  $("#matches tbody").html("<%= j render(@matches) %>");
+<% end %>

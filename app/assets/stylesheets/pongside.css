@@ -1,0 +1,76 @@
+.control-flag{
+  overflow: hidden;
+}
+@media(max-width:767px){
+  .control-flag{
+    max-height: 110px;
+  }
+}
+@media(min-width:768px){
+  .control-flag{
+    max-height: 110px;
+  }
+}
+@media(min-width:992px){
+  .control-flag{
+    max-height: 145px;
+  }
+}
+@media(min-width:1200px){
+  .control-flag{
+    max-height: 145px;
+  }
+}
+
+.control-score{
+  font-size: 4em;
+  font-weight: bold;
+  color: white;
+}
+
+
+/* fullscreen styles */
+.match-score{
+  font-size: 11em;
+  color: white;
+  margin-top: -30px;
+  text-shadow: 0 0 10px #fafafa;
+}
+.score {
+  font-size: 21em;
+  color: #1FF95F;
+  margin-top: -30px;
+  text-shadow: 0 0 20px #0F7A2E;
+}
+
+.player-names{
+  /* override body margin */
+  margin-top: -20px;
+}
+.player-name {
+  font-size: 2.8em;
+  padding: 0px !important;
+  color: #fdf754;
+  text-shadow: 0 0 10px #a91402;
+}
+
+.flag{
+  min-height: 9.5em;
+  max-height: 9.5em;
+  overflow: hidden;
+}
+.ball{
+  min-height: 11em;
+  margin-top: 30px;
+}
+.cards{
+  margin-top: 10px;
+}
+.yellow-card{
+  color: #000000;
+  background-color: #F1EF0C !important;
+}
+.timeout {
+  color: #000000;
+  background-color: #ffffff !important;
+}

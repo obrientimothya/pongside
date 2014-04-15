@@ -1,0 +1,23 @@
+.well.well.sm
+  .btn-group
+    %button.btn.btn-info.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+      %span.glyphicon.glyphicon-cog
+      Actions
+      %span.caret
+    %ul.dropdown-menu{:role => "menu"}
+      %li.text-warning
+        = link_to switch_service_match_path(@match), remote: true, data:{confirm: "Are you sure you want to change the server?"} do
+          %span.text-warning.glyphicon.glyphicon-transfer
+          change server
+      %li
+        = link_to change_ends_match_path(@match), remote: true, data: {confirm: "Are you sure the players have changed ends?"} do
+          %span.text-info.glyphicon.glyphicon-transfer
+          change ends
+      %li.divider
+      %li
+        = link_to set_over_match_path(@match), data: {confirm: "Are you sure you want to mark this Match as Ended?"} do
+          %span.text-danger.glyphicon.glyphicon-stop
+          end match
+  %a.btn.btn-default{href: "#games"}
+    %span.glyphicon.glyphicon-arrow-down
+    Game List

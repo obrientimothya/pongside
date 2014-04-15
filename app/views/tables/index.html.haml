@@ -1,0 +1,23 @@
+.page-header
+  .pull-right
+    = link_to new_table_path, class: 'btn btn-success' do
+      .glyphicon.glyphicon-plus
+      table
+  %h1 Tables
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Name
+      %th Reverse ends
+      %th
+  %tbody
+    - @tables.each do |table|
+      %tr
+        %td= table.name
+        %td= table.reverse_ends
+        %td
+          = link_to table, title: 'scoreboard (fullscreen)', class: 'btn btn-success' do
+            %span.glyphicon.glyphicon-play
+          = link_to edit_table_path(table), class: 'btn btn-default' do
+            %span.glyphicon.glyphicon-pencil

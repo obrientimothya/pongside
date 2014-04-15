@@ -1,0 +1,13 @@
+- if @match.games.blank?
+  %h4.text-center
+    GAME 1
+- else
+  %h4.text-center
+    GAME
+    = @match.games.last.game_number + 1
+.row
+  .col-md-6.col-sm-6
+    = render partial: "matches/player", locals: {side: "left"}
+  .col-md-6.col-sm-6
+    = render partial: "matches/player", locals: {side: "right"}
+  

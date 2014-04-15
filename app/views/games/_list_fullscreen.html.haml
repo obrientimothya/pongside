@@ -1,0 +1,41 @@
+- if @match.games.size > 0
+  %hr
+  %table.table.table-striped
+    %thead
+      %tr
+        %th.text-right
+          GAME
+        - @match.games.each do |game|
+          %th.text-center
+            = game.game_number
+        %th.text-center
+          MATCH
+    %tbody  
+      %tr
+        %td
+          %h3{style: "font-size: 3em;"}
+            = truncate @match.a_name, length: 10, omission: ""
+        - @match.games.each do |game|
+          %td.text-center{class: "#{game.a_score > game.b_score ? "text-success" : ""}"}
+            %h2{style: "font-size: 5em;"}
+              = game.a_score
+        %td.text-center{class: "#{@match.a_wins > @match.b_wins ? "text-info" : ""}"}
+          %h2{style: "font-size: 5em;"}
+            %strong
+              = @match.a_wins
+      %tr
+        %td
+          %h3{style: "font-size: 3em;"}
+            = truncate @match.b_name, length: 10, omission: ""
+        - @match.games.each do |game|
+          %td.text-center{class: "#{game.b_score > game.a_score ? "text-success" : ""}"}
+            %h2{style: "font-size: 5em;"}
+              = game.b_score
+        %td.text-center{class: "#{@match.b_wins > @match.a_wins ? "text-info" : ""}"}
+          %h2{style: "font-size: 5em;"}
+            %strong
+              = @match.b_wins
+
+- else
+  %p
+    No games completed.

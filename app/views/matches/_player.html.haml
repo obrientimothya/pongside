@@ -1,0 +1,53 @@
+- side ||= "left"
+- player = @match.send("#{side}_player")
+
+
+.control-flag
+  = image_tag asset_path("#{@match.send("#{player}_country")}.png"), class: "img-responsive"
+%h2{style: "min-height: 40px;"}
+  - if @match.send("#{side}_player") == @match.server
+    = image_tag asset_path("ball.png"), style: "max-width: 32px;"
+  - if @match.server.blank? && side == "left"
+    = image_tag asset_path("ball.png"), style: "max-width: 32px;"
+  = truncate @match.send("#{player}_name"), length: 12
+
+- if !@match.send("#{player}_red_card") && !@match.send("#{player}_yellow_card") && !@match.send("#{player}_timeout")
+  flags: none
+- if @match.send("#{player}_red_card")
+  %span.label.label-danger
+    %span.glyphicon.glyphicon-tag
+    RED CARD
+- if @match.send("#{player}_yellow_card")
+  %span.label.label-warning
+    %span.glyphicon.glyphicon-tag
+    YELLOW CARD
+- if @match.send("#{player}_timeout")
+  %span.label.label-primary
+    %span.glyphicon.glyphicon-time
+    TIMEOUT
+  
+
+.well.well-sm
+  .control-score.text-center
+    = @match.send("#{player}_score")
+
+%p
+  .btn-group
+    = link_to adjust_score_match_path(@match, player: player, direction: "up"), remote: true, class: "btn btn-success btn-lg" do
+      %span.glyphicon.glyphicon-plus
+      score
+    = link_to adjust_score_match_path(@match, player: player, direction: "down"), remote: true,  class: "btn btn-lg" do
+      %span.glyphicon.glyphicon-minus
+      score
+
+%p
+  .btn-group
+    = link_to toggle_card_match_path(@match, player: player, type: "timeout"), remote: true, data:{confirm: "Are you sure you want to toggle the Timeout Card?"}, class: "btn btn-sm btn-default" do
+      %span.glyphicon.glyphicon-time
+      out
+    = link_to toggle_card_match_path(@match, player: player, type: "yellow"), remote: true, data:{confirm: "Are you sure you want to toggle the Yellow Card?"}, class: "btn btn-sm btn-warning" do
+      %span.glyphicon.glyphicon-flag
+      yellow
+    = link_to toggle_card_match_path(@match, player: player, type: "red"), remote: true, data:{confirm: "Are you sure you want to toggle the Red Card?"}, class: "btn btn-sm btn-danger" do
+      %span.glyphicon.glyphicon-flag
+      red

@@ -1,0 +1,29 @@
+- player = @match.send("#{side}_player")
+
+.row
+  .col-lg-5.col-md-5
+    .flag
+      = image_tag asset_path("#{@match.send("#{player}_country")}.png"), class: "img-responsive"
+    .clearfix
+    .ball.text-center
+      - if (@match.send("#{side}_player") == @match.server) || (side == "left" && @match.server.blank?)
+        = image_tag asset_path("ball.png"), style: "width: 50%;"
+    .cards
+      %ul.list-group
+        - if @match.send("#{player}_red_card")
+          %ul.list-group-item.list-group-item-danger.text-right
+            %h1
+              RED
+        - if @match.send("#{player}_yellow_card")
+          %ul.list-group-item.yellow-card.text-right
+            %h1
+              YELLOW
+        - if @match.send("#{player}_timeout")
+          %ul.list-group-item.timeout.text-right
+            %h1
+              TIMEOUT
+  .col-lg-7.col-md-7.text-center
+    .match-score
+      = @match.send("#{player}_wins") 
+    .score.well.well-sm
+      = @match.send("#{player}_score") 

@@ -1,0 +1,29 @@
+:javascript
+  $(document).ready(function(){ setInterval(refreshMatches,10000); });
+  function refreshMatches(){
+    $.getScript("/matches"); 
+  }
+
+.page-header
+  .pull-right
+    = link_to new_match_path, class: 'btn btn-success' do
+      .glyphicon.glyphicon-plus
+      match
+  %h1 
+    Matches
+  %p#matches-updated
+    = Time.zone.now
+
+
+%table.table.table-striped#matches
+  %thead
+    %tr
+      %th 
+        = "#"
+      %th Status
+      %th Table
+      %th Player A
+      %th Player B
+      %th
+  %tbody
+    = render @matches

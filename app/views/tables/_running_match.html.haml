@@ -1,0 +1,17 @@
+.row.player-names
+  .col-lg-6.col-md-6.col-sm-6
+    .well.well-sm.player-name.text-center
+      = truncate @match.send("#{@match.left_player}_name"), length: 20, omission: "" unless @table.reverse_ends?
+      = truncate @match.send("#{@match.right_player}_name"), length: 20, omission: "" if @table.reverse_ends?
+  .col-lg-6.col-md-6.col-sm-6
+    .well.well-sm.player-name.text-center
+      = truncate @match.send("#{@match.right_player}_name"), length: 20, omission: "" unless @table.reverse_ends
+      = truncate @match.send("#{@match.left_player}_name"), length: 20, omission: "" if @table.reverse_ends
+
+.row
+  .col-lg-6.col-md-6.col-sm-6
+    = render partial: "tables/left_player", locals: {side: "left"} unless @table.reverse_ends?
+    = render partial: "tables/left_player", locals: {side: "right"} if @table.reverse_ends?
+  .col-lg-6.col-md-6.col-sm-6
+    = render partial: "tables/right_player", locals: {side: "right"} unless @table.reverse_ends?
+    = render partial: "tables/right_player", locals: {side: "left"} if @table.reverse_ends?

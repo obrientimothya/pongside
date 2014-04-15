@@ -1,0 +1,40 @@
+%tr
+  %td
+    %small
+      = match.id
+  %td
+    - if match.is_running? && !match.is_over?
+      %span.label.label-danger
+        running
+    - if match.is_over?
+      %span.label.label-primary
+        ended
+    - unless match.is_running? || match.is_over?
+      %span.label.label-warning
+        pending
+
+  %td
+    = match.table.name
+  %td
+    = image_tag asset_path("#{match.a_country}.png"), style: "height: 32px;"
+    = "#{match.a_first_name} #{match.a_last_name}"
+    - if match.is_running?
+      %p{style: "font-size: 20px; font-weight: bold;"}
+        = match.a_score
+  %td
+    = image_tag asset_path("#{match.b_country}.png"), style: "height: 32px;"
+    = "#{match.b_first_name} #{match.b_last_name}"
+    - if match.is_running?
+      %p{style: "font-size: 20px; font-weight: bold;"}
+        = match.b_score
+  %td
+    - if match.is_running?
+      = link_to match, title: "Control Scores", class: "btn btn-info" do
+        %span.glyphicon.glyphicon-dashboard
+      = link_to set_over_match_path(match), title: "End Match", remote: true, class: "btn btn-danger", data: {confirm: "Are you sure you want to end this match?"} do
+        %span.glyphicon.glyphicon-stop
+    - unless match.is_running? || match.is_over?
+      = link_to set_running_match_path(match), title: "Begin Match", remote: true, class: "btn btn-success", data: {confirm: "Are you sure you want to begin this match?"} do
+        %span.glyphicon.glyphicon-play
+    = link_to edit_match_path(match), class: 'btn btn-default' do
+      %span.glyphicon.glyphicon-pencil

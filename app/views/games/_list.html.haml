@@ -1,0 +1,46 @@
+%h2
+  Games
+
+- if @match.games.size > 0
+  %table.table.table-striped
+    %thead
+      %tr
+        %th.text-right
+          GAME
+        - @match.games.each do |game|
+          %th.text-right
+            = game.game_number
+            - if game.game_number == @match.games.size
+              = link_to game_path(game), class: 'text-danger', remote: true, method: :delete, data: {confirm: "Are you sure you want to permanently remove this Game? You cannot undo this action."} do
+                %span.glyphicon.glyphicon-trash
+        %th.text-right
+          MATCH
+    %tbody  
+      %tr
+        %td
+          %h3
+            = truncate @match.a_name, length: 12
+        - @match.games.each do |game|
+          %td.text-right{class: "#{game.a_score > game.b_score ? "text-success" : ""}"}
+            %h3
+              = game.a_score
+        %td.text-right{class: "#{@match.a_wins > @match.b_wins ? "text-info" : ""}"}
+          %h2
+            %strong
+              = @match.a_wins
+      %tr
+        %td
+          %h3
+            = truncate @match.b_name, length: 12
+        - @match.games.each do |game|
+          %td.text-right{class: "#{game.b_score > game.a_score ? "text-success" : ""}"}
+            %h3
+              = game.b_score
+        %td.text-right{class: "#{@match.b_wins > @match.a_wins ? "text-info" : ""}"}
+          %h2
+            %strong
+              = @match.b_wins
+
+- else
+  %p
+    No games completed.

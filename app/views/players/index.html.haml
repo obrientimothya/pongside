@@ -1,0 +1,28 @@
+.page-header
+  .pull-right
+    = link_to new_player_path, class: 'btn btn-success' do
+      .glyphicon.glyphicon-plus
+      create
+  %h1 Players
+
+%table.table.table-striped
+  %tr
+    %th Code
+    %th Last name
+    %th First name
+    %th Country
+    %th
+    %th
+    %th
+
+  - @players.each do |player|
+    %tr
+      %td= player.code
+      %td= player.last_name
+      %td= player.first_name
+      %td
+        = player.country
+        = image_tag asset_path("#{player.country}.png"), style: "height: 32px;"
+      %td= link_to 'Show', player
+      %td= link_to 'Edit', edit_player_path(player)
+      %td= link_to 'Destroy', player, :method => :delete, :data => { :confirm => 'Are you sure?' }

@@ -1,7 +1,9 @@
 %tr
   %td
     %small
-      = match.id
+      = "##{match.id}"
+      %br
+      = match.title
   %td
     - if match.is_running? && !match.is_over?
       %span.label.label-danger
@@ -16,14 +18,14 @@
   %td
     = match.table.name
   %td
-    = image_tag asset_path("#{match.a_country}.png"), style: "height: 32px;"
-    = "#{match.a_first_name} #{match.a_last_name}"
+    = image_tag asset_path("#{match.player_a.country}.png"), style: "height: 32px;"
+    = "#{match.a_first_name} #{match.player_a.last_name}"
     - if match.is_running?
       %p{style: "font-size: 20px; font-weight: bold;"}
         = match.a_score
   %td
-    = image_tag asset_path("#{match.b_country}.png"), style: "height: 32px;"
-    = "#{match.b_first_name} #{match.b_last_name}"
+    = image_tag asset_path("#{match.player_b.country}.png"), style: "height: 32px;"
+    = "#{match.b_first_name} #{match.player_b.last_name}"
     - if match.is_running?
       %p{style: "font-size: 20px; font-weight: bold;"}
         = match.b_score

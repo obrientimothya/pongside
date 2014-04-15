@@ -1,8 +1,10 @@
 class Match < ActiveRecord::Base
   belongs_to :table
   has_many :games
+  belongs_to :player_a, class_name: "Player", foreign_key: :player_a_id
+  belongs_to :player_b, class_name: "Player", foreign_key: :player_b_id
 
-  validates_presence_of :table_id, :a_last_name, :b_last_name
+  validates_presence_of :table_id, :player_a_id, :player_b_id
 
   default_scope { order("matches.is_running DESC, matches.is_over ASC") }
 
@@ -24,15 +26,15 @@ class Match < ActiveRecord::Base
 
   def a_name
     name = ""
-    name += "#{self.a_first_name[0..0].upcase}. " unless self.a_first_name.blank?
-    name += "#{self.a_last_name.upcase}"
+    name += "#{self.player_a.first_name[0..0].upcase}. " unless self.player_a.first_name.blank?
+    name += "#{self.player_a.last_name.upcase}"
     return name
   end
 
   def b_name
     name = ""
-    name += "#{self.b_first_name[0..0].upcase}. " unless self.b_first_name.blank?
-    name += "#{self.b_last_name.upcase}"
+    name += "#{self.player_b.first_name[0..0].upcase}. " unless self.player_b.first_name.blank?
+    name += "#{self.player_b.last_name.upcase}"
     return name
   end
 

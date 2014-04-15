@@ -3,7 +3,7 @@
 
 
 .control-flag
-  = image_tag asset_path("#{@match.send("#{player}_country")}.png"), class: "img-responsive"
+  = image_tag asset_path("#{@match.send("player_#{player}").country}.png"), class: "img-responsive"
 %h2{style: "min-height: 40px;"}
   - if @match.send("#{side}_player") == @match.server
     = image_tag asset_path("ball.png"), style: "max-width: 32px;"

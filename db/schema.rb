@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140410014911) do
+ActiveRecord::Schema.define(version: 20140415063156) do
 
   create_table "games", force: true do |t|
     t.integer  "match_id"
@@ -51,11 +51,25 @@ ActiveRecord::Schema.define(version: 20140410014911) do
     t.string   "server"
     t.integer  "a_score",       default: 0
     t.integer  "b_score",       default: 0
+    t.integer  "player_a_id"
+    t.integer  "player_b_id"
+    t.string   "title"
   end
 
   add_index "matches", ["is_over"], name: "index_matches_on_is_over", using: :btree
   add_index "matches", ["is_running"], name: "index_matches_on_is_running", using: :btree
+  add_index "matches", ["player_a_id"], name: "index_matches_on_player_a_id", using: :btree
+  add_index "matches", ["player_b_id"], name: "index_matches_on_player_b_id", using: :btree
   add_index "matches", ["table_id"], name: "index_matches_on_table_id", using: :btree
+
+  create_table "players", force: true do |t|
+    t.string   "code"
+    t.string   "last_name"
+    t.string   "first_name"
+    t.string   "country"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tables", force: true do |t|
     t.string   "name"

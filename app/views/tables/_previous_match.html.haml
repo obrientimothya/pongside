@@ -1,0 +1,51 @@
+- if @table.matches.where(is_over: true).size > 0
+  
+  - match = @table.matches.where(is_over: true).reorder("matches.finished_at DESC").first
+  - winner = "a"
+  - loser = "b"
+  - if match.a_wins < match.b_wins
+    - winner = "b"
+    - loser = "a"
+
+  .previous-title
+    %h1
+      = "#{match.title} Results".upcase
+  .row.winner
+    - country_name = ""
+    - @countries.each do |country|
+      - if country[1] == match.send("player_#{winner}").country
+        - country_name = country[0][3..99]
+    .col-lg-3.col-md-3
+      .winner-score.text-center
+        = match.send("#{winner}_wins")
+    .col-lg-9.col-md-9
+      .winner-name
+        = match.send("player_#{winner}").first_name
+        = match.send("player_#{winner}").last_name
+        %small
+          = "(#{country_name})"
+      = image_tag asset_path("#{match.send("player_#{winner}").country}.png"), class: "img-responsive"
+  .row.loser
+    - country_name = ""
+    - @countries.each do |country|
+      - if country[1] == match.send("player_#{loser}").country
+        - country_name = country[0][3..99]
+    .col-lg-3.col-md-3
+      .loser-score.text-center
+        = match.send("#{loser}_wins")
+    .col-lg-9.col-md-9
+      .loser-name
+        = match.send("player_#{loser}").first_name
+        = match.send("player_#{loser}").last_name
+        %small
+          = "(#{country_name})"
+      = image_tag asset_path("#{match.send("player_#{loser}").country}.png"), style: "height: 150px;"
+
+
+
+- else
+  .welcome-message
+    %h1
+      welcome
+    %h2
+      waiting for a match to start

@@ -1,1 +1,9 @@
-$("#players").html("<%= j render("tables/running_match") %>");
+var matchUpdatedAt = "<%= Time.zone.now.to_s %>";
+<% unless @match.blank? %>
+  matchUpdatedAt = "<%= @match.updated_at.to_s %>";
+<% end %>
+var lastUpdatedAt = $("#players").data("updated-at");
+
+if (matchUpdatedAt > lastUpdatedAt){
+  $("#table").html("<%= j render("tables/show_content")%>");
+}

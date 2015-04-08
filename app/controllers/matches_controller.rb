@@ -144,7 +144,7 @@ class MatchesController < ApplicationController
     if (@match.a_score >= 11 || @match.b_score >= 11) && ( (@match.a_score - @match.b_score) >= 2 || (@match.b_score - @match.a_score) >= 2 )
       # fetch the current game_number
       current_game_number = 0
-      if @match.games.size > 0
+      unless @match.games.blank?
         current_game_number = Game.where(match_id: @match.id).last.game_number
       end
       # create the new game

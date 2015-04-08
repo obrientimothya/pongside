@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.1'
+# ruby '2.1.1'
 gem 'rails', '4.1.0.rc2'
 gem 'sass-rails', '~> 4.0.2'
 gem 'uglifier', '>= 1.3.0'
@@ -11,7 +11,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'bootstrap-sass'
 gem 'haml-rails'
-gem 'mysql2'
+gem 'pg'
+#gem 'mysql2'
 gem 'thin'
 group :development do
   gem 'better_errors'

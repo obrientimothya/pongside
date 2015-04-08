@@ -7,13 +7,14 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body
-    - unless @fullscreen
+  - unless @fullscreen
+    %body
       %header
         = render 'layouts/navigation'
       %main{:role => "main"}
         = render 'layouts/messages'
         = yield
-    - else
-      .container-fluid{style: "margin-top: 20px;"}
+  - else
+    %body.fullscreen
+      .container-fluid.fullscreen-container
         = yield

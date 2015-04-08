@@ -30,30 +30,60 @@
 
 
 /* fullscreen styles */
+body.fullscreen{
+  background-color: blue;
+}
+.fullscreen-container{
+}
+.rounded-box{
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  border-width: 4px;
+  border-style: solid;
+  border-color: white;
+}
+.player{
+  padding: 10px;
+}
 .country-name{
-  font-size: 1.8em;
+  font-size: 60px;
+  font-weight: bold;
   overflow: hidden;
+  color: white;
 }
 .match-title{
-  margin: 0;
+  margin-top: 10px;
   padding: 0;
-  font-size: 2.8em;
+  line-height: 70px;
+  font-size: 70px;
   text-align: center;
-  color: white;
+  color: #1ffeff;
   font-weight: bold;
+  background-color: black;
 }
 
 .match-score{
-  font-size: 11em;
+  font-size: 150px;
+  line-height: 160px;
   color: white;
-  margin-top: -50px;
-  text-shadow: 0 0 10px #fafafa;
+  background-color: #62afff;
+  text-align: center;
+  font-weight: bold;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
 }
 .score {
-  font-size: 21em;
-  color: #1FF95F;
-  margin-top: -30px;
-  text-shadow: 0 0 20px #0F7A2E;
+  font-size: 360px;
+  line-height: 300px;
+  color: white;
+  font-weight: bold;
+  margin-top: 30px;
+  padding: 0;
 }
 
 .player-names{
@@ -61,31 +91,54 @@
   margin-top: -20px;
 }
 .player-name {
-  font-size: 2.8em;
+  font-size: 100px;
+  line-height: 100px;
   padding: 0px !important;
-  color: #fdf754;
-  text-shadow: 0 0 10px #a91402;
+  color: white;
+  letter-spacing: -12px;
 }
 
 .flag{
-  min-height: 9.5em;
-  max-height: 9.5em;
+  min-height: 270px;
+  max-height: 270px;
   overflow: hidden;
 }
 .ball{
-  min-height: 11em;
-  margin-top: 30px;
+  height: 100px;
+}
+.ball img {
+  height: 100px;
 }
 .cards{
-  margin-top: 10px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 70px;
+  line-height: 80px;
 }
 .yellow-card{
-  color: #000000;
-  background-color: #F1EF0C !important;
+  color: blue;
+  background-color: yellow;
+  display: inline-block;
+  border-radius: 10px;
+  width: 70px;
+  text-align: center;
 }
 .timeout {
-  color: #000000;
-  background-color: #ffffff !important;
+  color: white;
+  background-color: black;
+  display: inline-block;
+  border-radius: 10px;
+  width: 70px;
+  text-align: center;
+}
+.red-card{
+  color: white;
+  background-color: red;
+  display: inline-block;
+  border-radius: 10px;
+  width: 70px;
+  text-align: center;
 }
 .welcome-message h1{
   color: white;

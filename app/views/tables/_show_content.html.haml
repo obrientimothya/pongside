@@ -8,7 +8,7 @@
   - updated_at = @match.updated_at.to_s
 
 #players{style: "margin-top: 20px;", data: {updated_at: "#{updated_at}"}}
-  - if @table.matches.where(is_running: true).size > 0
+  - unless @table.matches.where(is_running: true).blank?
     = render "tables/running_match"
   - else
     = render "tables/previous_match"

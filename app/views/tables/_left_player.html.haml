@@ -4,32 +4,65 @@
   - if country[1] == @match.send("player_#{player}").country
     - country_name = country[0][3..99]
 
-.row
-  .col-lg-5.col-md-5
-    .country-name
-      = country_name.upcase
-    .flag
-      = image_tag asset_path("#{@match.send("player_#{player}").country}.png"), class: "img-responsive"
-    .clearfix
-    .ball.text-center
-      - if (@match.send("#{side}_player") == @match.server) || (side == "left" && @match.server.blank?)
-        = image_tag asset_path("ball.png"), style: "width: 50%;"
-    .cards{style: "margin-top: -20px;"}
-      %ul.list-group
+.rounded-box.player
+  .row
+    .col-lg-6
+      .country-name
+        = country_name.upcase
+    .col-lg-6
+      .flag
+        = image_tag asset_path("#{@match.send("player_#{player}").country}.png"), class: "img-responsive"
+  .row
+    .col-lg-10
+      .player-name
+        = truncate @match.send("player_#{player}").last_name.upcase + ' ' + @match.send("player_#{player}").first_name, length: 15, omission: ""
+    .col-lg-2
+      .ball.text-center
+        - if (@match.send("#{side}_player") == @match.server) || (side == "left" && @match.server.blank?)
+          = image_tag asset_path("ball.png")
+  .row
+    .col-lg-12
+      .score
+        = @match.send("#{player}_score") 
+      .match-score
+        = @match.send("#{player}_wins")
+      .cards
         - if @match.send("#{player}_red_card")
-          %ul.list-group-item.list-group-item-danger.text-right{style: "padding: 0; padding-right: 20px;"}
-            %h1
-              RED
+          .red-card
+            R
         - if @match.send("#{player}_yellow_card")
-          %ul.list-group-item.yellow-card.text-right{style: "padding: 0; padding-right: 20px;"}
-            %h1
-              YELLOW
+          .yellow-card
+            Y
         - if @match.send("#{player}_timeout")
-          %ul.list-group-item.timeout.text-right{style: "padding: 0; padding-right: 20px;"}
-            %h1
-              TIMEOUT
-  .col-lg-7.col-md-7.text-center
-    .match-score
-      = @match.send("#{player}_wins") 
-    .score.well.well-sm{style: "padding: 0;"}
-      = @match.send("#{player}_score") 
+          .timeout
+            T
+
+  / .row
+  /   .col-lg-5.col-md-5
+  /     .country-name
+  /       = country_name.upcase
+  /     .flag
+  /       = image_tag asset_path("#{@match.send("player_#{player}").country}.png"), class: "img-responsive"
+  /     .clearfix
+  /     .ball.text-center
+  /       - if (@match.send("#{side}_player") == @match.server) || (side == "left" && @match.server.blank?)
+  /         = image_tag asset_path("ball.png"), style: "width: 50%;"
+  /     .cards{style: "margin-top: -20px;"}
+  /       %ul.list-group
+  /         - if @match.send("#{player}_red_card")
+  /           %ul.list-group-item.list-group-item-danger.text-right{style: "padding: 0; padding-right: 20px;"}
+  /             %h1
+  /               RED
+  /         - if @match.send("#{player}_yellow_card")
+  /           %ul.list-group-item.yellow-card.text-right{style: "padding: 0; padding-right: 20px;"}
+  /             %h1
+  /               YELLOW
+  /         - if @match.send("#{player}_timeout")
+  /           %ul.list-group-item.timeout.text-right{style: "padding: 0; padding-right: 20px;"}
+  /             %h1
+  /               TIMEOUT
+  /   .col-lg-7.col-md-7.text-center
+  /     .match-score
+  /       = @match.send("#{player}_wins") 
+  /     .score.well.well-sm{style: "padding: 0;"}
+  /       = @match.send("#{player}_score") 

@@ -40,7 +40,7 @@ class Match < ActiveRecord::Base
 
   # number of games won by player
   def a_wins
-    if self.games.size > 0
+    unless self.games.blank?
       return self.games.where("games.a_score > games.b_score").size
     else
       return 0
@@ -48,7 +48,7 @@ class Match < ActiveRecord::Base
   end
 
   def b_wins
-    if self.games.size > 0
+    unless self.games.blank?
       return self.games.where("games.b_score > games.a_score").size
     else
       return 0

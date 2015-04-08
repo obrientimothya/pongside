@@ -34,6 +34,7 @@ body.fullscreen{
   background-color: blue;
 }
 .fullscreen-container{
+  padding-top: 70px;
 }
 .rounded-box{
   -webkit-border-radius: 20px;
@@ -53,17 +54,20 @@ body.fullscreen{
   color: white;
 }
 .match-title{
-  margin-top: 10px;
   padding: 0;
   line-height: 70px;
   font-size: 70px;
   text-align: center;
-  color: #1ffeff;
+  color: aqua;
   font-weight: bold;
   background-color: black;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
 }
 
-.match-score{
+.match-score-left{
   font-size: 150px;
   line-height: 160px;
   color: white;
@@ -76,6 +80,20 @@ body.fullscreen{
   position: absolute;
   bottom: 20px;
   right: 20px;
+}
+.match-score-right{
+  font-size: 150px;
+  line-height: 160px;
+  color: white;
+  background-color: #62afff;
+  text-align: center;
+  font-weight: bold;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
 }
 .score {
   font-size: 360px;
@@ -109,10 +127,17 @@ body.fullscreen{
 .ball img {
   height: 100px;
 }
-.cards{
+.cards-left {
   position: absolute;
   top: 20px;
   right: 20px;
+  font-size: 70px;
+  line-height: 80px;
+}
+.cards-right {
+  position: absolute;
+  top: 20px;
+  left: 20px;
   font-size: 70px;
   line-height: 80px;
 }

@@ -12,6 +12,7 @@ gem 'spring',        group: :development
 gem 'bootstrap-sass'
 gem 'haml-rails'
 gem 'pg'
+gem 'sqlite3'
 #gem 'mysql2'
 gem 'thin'
 group :development do

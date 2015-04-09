@@ -117,9 +117,12 @@ body.fullscreen{
 }
 
 .flag{
-  min-height: 270px;
-  max-height: 270px;
-  overflow: hidden;
+  margin-bottom: 10px;
+}
+.flag img{
+  width: 380px;
+  height: 180px;
+  float: right;
 }
 .ball{
   height: 100px;
@@ -175,8 +178,9 @@ body.fullscreen{
   display: inline-block !important;
 }
 .fullscreen-game-score-flag{
-  min-height: 105px;
-  max-height: 105px;
+  height: 100px;
+  width: 200px;
+  margin-top: 5px;
   margin-bottom: 5px;
   float: right;
 }

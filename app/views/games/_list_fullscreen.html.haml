@@ -8,14 +8,14 @@
     %tbody  
       %tr
         %td
-          = image_tag asset_path("#{@match.send("player_a").country}.png"), class: "img-responsive fullscreen-game-score-flag"
+          = image_tag asset_path("#{@match.send("player_a").country}.png"), class: "fullscreen-game-score-flag"
         - @match.games.each do |game|
           %td
             .fullscreen-game-score
               = game.a_score
       %tr
         %td
-          = image_tag asset_path("#{@match.send("player_b").country}.png"), class: "img-responsive fullscreen-game-score-flag"
+          = image_tag asset_path("#{@match.send("player_b").country}.png"), class: "fullscreen-game-score-flag"
         - @match.games.each do |game|
           %td
             .fullscreen-game-score

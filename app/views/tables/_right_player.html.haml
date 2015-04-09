@@ -11,8 +11,8 @@
         = country_name.upcase
     .col-lg-6
       .flag
-        = image_tag asset_path("#{@match.send("player_#{player}").country}.png"), class: "img-responsive"
-  .row
+        = image_tag asset_path("#{@match.send("player_#{player}").country}.png")
+  .row{style: "margin-top: 10px;"}
     .col-lg-10
       .player-name
         = truncate @match.send("player_#{player}").last_name.upcase + ' ' + @match.send("player_#{player}").first_name, length: 15, omission: ""

@@ -70,8 +70,8 @@ body.fullscreen{
 .match-score-left{
   font-size: 150px;
   line-height: 160px;
-  color: white;
-  background-color: #62afff;
+  color: blue;
+  background-color: white;
   text-align: center;
   font-weight: bold;
   -webkit-border-radius: 20px;
@@ -84,8 +84,8 @@ body.fullscreen{
 .match-score-right{
   font-size: 150px;
   line-height: 160px;
-  color: white;
-  background-color: #62afff;
+  color: blue;
+  background-color: white;
   text-align: center;
   font-weight: bold;
   -webkit-border-radius: 20px;
@@ -116,9 +116,6 @@ body.fullscreen{
   letter-spacing: -12px;
 }
 
-.flag{
-  margin-bottom: 10px;
-}
 .flag img{
   width: 380px;
   height: 180px;

@@ -6,4 +6,9 @@
     = render partial: "tables/right_player", locals: {side: "right"} unless @table.reverse_ends?
     = render partial: "tables/right_player", locals: {side: "left"} if @table.reverse_ends?
 
-= render "tables/game_scores"
+.row
+  .col-lg-8
+    = render "tables/game_scores"
+  .col-lg-4
+    .fullscreen-logo
+      = image_tag asset_path("logo.png")

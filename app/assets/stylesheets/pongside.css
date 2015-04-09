@@ -55,7 +55,7 @@ body.fullscreen{
 }
 .match-title{
   padding: 0;
-  line-height: 70px;
+  line-height: 80px;
   font-size: 70px;
   text-align: center;
   color: aqua;
@@ -203,28 +203,71 @@ body.fullscreen{
 
 }
 
+.welcome-logo {
+  padding: 0;
+  line-height: 70px;
+  font-size: 70px;
+  text-align: center;
+  color: aqua;
+  font-weight: bold;
+  background-color: white;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+.welcome-logo img{
+  height: 400px;
+}
 .welcome-message h1{
   color: white;
-  text-shadow: 0 0 10px #fafafa;
   font-size: 10em;
   text-align: center;
-  margin-top: 150px;
+  margin-top: 400px;
 }
 .welcome-message h2{
   font-size: 5em;
   text-align: center;
 }
+
+
+.previous-logo {
+  padding: 0;
+  line-height: 70px;
+  font-size: 70px;
+  text-align: center;
+  color: aqua;
+  font-weight: bold;
+  background-color: white;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  height: 320px;
+}
+.previous-logo img {
+  height: 300px;
+}
+
 .previous-title h1{
   margin: 0;
-  margin-bottom: 20px;
+  margin-top: 320px;
   padding: 0;
-  font-size: 3em;
+  font-size: 70px;
+  line-height: 80px;
+  font-weight: bold;
   text-align: center;
-  color: white;
+  color: aqua;
   font-weight: normal;
+  background-color: black;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
 }
 
 .winner{
+  margin-top: 380px;
   margin-bottom: 20px;
 }
 .winner-name{
@@ -249,3 +292,4 @@ body.fullscreen{
 .loser-score{
   font-size: 11em;
 }
+

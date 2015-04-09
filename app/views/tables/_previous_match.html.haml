@@ -6,9 +6,12 @@
     - winner = "b"
     - loser = "a"
 
+  .previous-logo
+    = image_tag asset_path("logo.png")
+
   .previous-title
     %h1
-      = "#{@match.title} Results".upcase
+      = "#{@match.title} results".upcase
   .row.winner
     - country_name = ""
     - @countries.each do |country|
@@ -40,11 +43,11 @@
           = "(#{country_name})"
       = image_tag asset_path("#{@match.send("player_#{loser}").country}.png"), style: "height: 150px;"
 
-
-
 - else
+  .welcome-logo
+    = image_tag asset_path("logo.png")
   .welcome-message
     %h1
       welcome
     %h2
-      waiting for a match to start
+      waiting for matches to start

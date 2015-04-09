@@ -4,6 +4,11 @@ var matchUpdatedAt = "<%= Time.zone.now.to_s %>";
 <% end %>
 var lastUpdatedAt = $("#players").data("updated-at");
 
+// welome screen don't refresh until match
+<% if Match.count == 0 && Match.where(is_running: true).count == 0 && Match.where(is_over: true).count == 0 %>
+  matchUpdatedAt = "1981-08-17 00:00:00 UTC";
+<% end %>
+
 if (matchUpdatedAt > lastUpdatedAt){
   $("#table").html("<%= j render("tables/show_content")%>");
 }

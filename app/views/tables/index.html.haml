@@ -10,12 +10,14 @@
     %tr
       %th Name
       %th Reverse ends
+      %th Banner
       %th
   %tbody
     - @tables.each do |table|
       %tr
         %td= table.name
         %td= table.reverse_ends
+        %th= table.banner.blank? ? "inactive" : table.banner.name
         %td
           = link_to table, title: 'scoreboard (fullscreen)', class: 'btn btn-success' do
             %span.glyphicon.glyphicon-play

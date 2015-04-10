@@ -1,4 +1,6 @@
 Pongside::Application.routes.draw do
+  resources :banners
+
   resources :players
 
   resources :games

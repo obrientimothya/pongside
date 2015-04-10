@@ -15,6 +15,7 @@ gem 'pg'
 gem 'sqlite3'
 #gem 'mysql2'
 gem 'thin'
+gem 'carrierwave'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :mri_21, :rbx]

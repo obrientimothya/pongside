@@ -21,6 +21,11 @@ class TablesController < ApplicationController
     if @table.matches.where(is_running: true).size == 0 && @table.matches.where(is_over: true).size > 0
       @match = @table.matches.where(is_over: true).reorder("matches.finished_at DESC").first
     end
+    if @table.banner.blank?
+      @banner = false
+    else
+      @banner = true
+    end
   end
 
   # GET /tables/new
@@ -80,6 +85,6 @@ class TablesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def table_params
-      params.require(:table).permit(:name, :reverse_ends)
+      params.require(:table).permit(:name, :reverse_ends, :banner_id)
     end
 end

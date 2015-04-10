@@ -12,5 +12,9 @@
   .field
     = f.label :reverse_ends
     = f.check_box :reverse_ends
-  .actions
-    = f.submit 'Save'
+  .field
+    = f.label :banner_id, "Banner Image"
+    = f.collection_select :banner_id, Banner.all, :id, :name, include_blank: "<no banner>"
+  %p
+    .actions
+      = f.submit 'Save'

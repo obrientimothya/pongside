@@ -1,0 +1,21 @@
+.page-header
+  .pull-right
+    = link_to new_banner_path, class: 'btn btn-success' do
+      .glyphicon.glyphicon-plus
+      banner
+  %h1 Banners
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Name
+      %th
+  %tbody
+    - @banners.each do |banner|
+      %tr
+        %td= banner.name
+        %td
+          = link_to banner.banner.url, title: 'preview', target: '_blank', class: 'btn btn-success' do
+            %span.glyphicon.glyphicon-eye-open
+          = link_to edit_banner_path(banner), class: 'btn btn-default' do
+            %span.glyphicon.glyphicon-pencil

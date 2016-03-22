@@ -1,3 +1,5 @@
+#running-match-bg
+
 .row
   .col-lg-6.col-md-6.col-sm-6
     = render partial: "tables/left_player", locals: {side: "left"} unless @table.reverse_ends?
@@ -6,9 +8,34 @@
     = render partial: "tables/right_player", locals: {side: "right"} unless @table.reverse_ends?
     = render partial: "tables/right_player", locals: {side: "left"} if @table.reverse_ends?
 
-.row
-  .col-lg-8
-    = render "tables/game_scores"
-  .col-lg-4
-    .fullscreen-logo
-      = image_tag asset_path("logo.png")
+-#.row
+-#  .col-lg-8
+-#    = render "tables/game_scores"
+-#  .col-lg-4
+-#    .fullscreen-logo
+-#      = image_tag asset_path("logo.png")
+
+#top-name
+  = @match.player_a.first_name[0].upcase + '.'
+  = truncate @match.player_a.last_name.upcase, length: 11, omission: '.'
+#top-flag
+  = image_tag asset_path("#{@match.player_a.country}.png")
+
+%table#top-scores
+  %tbody
+    %tr
+      - @match.games.each do |game|
+        %td
+          = game.a_score
+
+#bottom-name
+  = @match.player_b.first_name[0].upcase + '.'
+  = truncate @match.player_b.last_name.upcase, length: 11, omission: '.'
+#bottom-flag
+  = image_tag asset_path("#{@match.player_b.country}.png")
+%table#bottom-scores
+  %tbody
+    %tr
+      - @match.games.each do |game|
+        %td
+          = game.b_score

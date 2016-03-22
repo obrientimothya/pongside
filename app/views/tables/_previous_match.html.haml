@@ -1,47 +1,88 @@
 - unless @match.blank?
 
+  #previous-match-bg
+
   - winner = "a"
   - loser = "b"
   - if @match.a_wins < @match.b_wins
     - winner = "b"
     - loser = "a"
 
-  .previous-logo
-    = image_tag asset_path("logo.png")
-
-  .previous-title
-    %h1
-      = "#{@match.title} results".upcase
-  .row.winner
+  .winner
     - country_name = ""
     - @countries.each do |country|
       - if country[1] == @match.send("player_#{winner}").country
         - country_name = country[0][3..99]
-    .col-lg-3.col-md-3
-      .winner-score.text-center
-        = @match.send("#{winner}_wins")
-    .col-lg-9.col-md-9
-      .winner-name
-        = @match.send("player_#{winner}").first_name
-        = @match.send("player_#{winner}").last_name
-        %small
-          = "(#{country_name})"
-      = image_tag asset_path("#{@match.send("player_#{winner}").country}.png"), class: "img-responsive"
-  .row.loser
-    - country_name = ""
-    - @countries.each do |country|
-      - if country[1] == @match.send("player_#{loser}").country
-        - country_name = country[0][3..99]
-    .col-lg-3.col-md-3
-      .loser-score.text-center
-        = @match.send("#{loser}_wins")
-    .col-lg-9.col-md-9
-      .loser-name
-        = @match.send("player_#{loser}").first_name
-        = @match.send("player_#{loser}").last_name
-        %small
-          = "(#{country_name})"
-      = image_tag asset_path("#{@match.send("player_#{loser}").country}.png"), style: "height: 150px;"
+    %h1
+      = @match.send("player_#{winner}").first_name
+      %br
+      = @match.send("player_#{winner}").last_name
+      %br
+      = "(#{country_name})"
+
+  #top-name
+    = @match.send("player_#{winner}").first_name[0].upcase + '.'
+    = truncate @match.send("player_#{winner}").last_name.upcase, length: 11, omission: '.'
+  #top-flag
+    = image_tag asset_path("#{@match.send("player_#{winner}").country}.png")
+
+  %table#top-scores
+    %tbody
+      %tr
+        - @match.games.each do |game|
+          %td
+            = game.send("#{winner}_score")
+
+  #bottom-name
+    = @match.send("player_#{loser}").first_name[0].upcase + '.'
+    = truncate @match.send("player_#{loser}").last_name.upcase, length: 11, omission: '.'
+  #bottom-flag
+    = image_tag asset_path("#{@match.send("player_#{loser}").country}.png")
+  %table#bottom-scores
+    %tbody
+      %tr
+        - @match.games.each do |game|
+          %td
+            = game.send("#{loser}_score")
+
+  -#.previous-logo
+  -#  = image_tag asset_path("logo.png")
+
+  -#.previous-title
+  -#  %h1
+  -#    = "#{@match.title} results".upcase
+  -#.row.winner
+  -#  - country_name = ""
+  -#  - @countries.each do |country|
+  -#    - if country[1] == @match.send("player_#{winner}").country
+  -#      - country_name = country[0][3..99]
+  -#  .col-md-3.col-md-offset-3
+  -#    .winner-score.text-center
+  -#      = @match.send("#{winner}_wins")
+  -#  .col-md-6
+  -#    .winner-name
+  -#      = @match.send("player_#{winner}").first_name
+  -#      = @match.send("player_#{winner}").last_name
+  -#      %small
+  -#        = "(#{country_name})"
+  -#    = image_tag asset_path("#{@match.send("player_#{winner}").country}.png"), style: "height: 150px;"
+  -#.row.loser
+  -#  - country_name = ""
+  -#  - @countries.each do |country|
+  -#    - if country[1] == @match.send("player_#{loser}").country
+  -#      - country_name = country[0][3..99]
+  -#  .col-md-3.col-md-offset-3
+  -#    .loser-score.text-center
+  -#      = @match.send("#{loser}_wins")
+  -#  .col-md-6
+  -#    .loser-name
+  -#      = @match.send("player_#{loser}").first_name
+  -#      = @match.send("player_#{loser}").last_name
+  -#      %small
+  -#        = "(#{country_name})"
+  -#    = image_tag asset_path("#{@match.send("player_#{loser}").country}.png"), style: "height: 150px;"
+
+
 
 - else
   .welcome-logo

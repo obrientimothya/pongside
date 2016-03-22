@@ -4,7 +4,7 @@
   - if country[1] == @match.send("player_#{player}").country
     - country_name = country[0][3..20]
 
-.rounded-box.player
+.player
   .row
     .col-lg-6
       .country-name
@@ -15,7 +15,7 @@
   .row{style: "margin-top: 10px;"}
     .col-lg-10
       .player-name
-        = truncate @match.send("player_#{player}").last_name.upcase + ' ' + @match.send("player_#{player}").first_name, length: 15, omission: ""
+        = truncate @match.send("player_#{player}").first_name[0] + '. ' + @match.send("player_#{player}").last_name.upcase, length: 14, omission: '.'
     .col-lg-2
       .ball.text-center
         - if (@match.send("#{side}_player") == @match.server) || (side == "left" && @match.server.blank?)

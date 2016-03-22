@@ -1,19 +1,22 @@
 - unless @banner
-  - if @table.matches.where(is_running: true).size > 0
-    - unless @table.matches.where(is_running: true).first.title.blank?
-      .match-title
-        = @table.matches.where(is_running: true).first.title.upcase
+  -#- if @table.matches.where(is_running: true).size > 0
+  -#  - unless @table.matches.where(is_running: true).first.title.blank?
+  -#    .match-title
+  -#      = @table.matches.where(is_running: true).first.title.upcase
 
   - updated_at = "1981-08-17 00:00:00 UTC"
   - unless @match.blank?
     - updated_at = @match.updated_at.to_s
 
-  #players{style: "margin-top: 20px;", data: {updated_at: "#{updated_at}"}}
-    - unless @table.matches.where(is_running: true).blank?
+  - unless @table.matches.where(is_running: true).blank?
+    #players{data: {updated_at: "#{updated_at}"}}
       = render "tables/running_match"
-    - else
-      = render "tables/previous_match"
+
+  - if @table.matches.where(is_running: true).blank?
+    #players{data: {updated_at: "#{updated_at}"}}
+    = render "tables/previous_match"
+
 - else
   .banner
     = image_tag image_path @table.banner.banner.url
-  #players{style: "margin-top: 20px;", data: {updated_at: "#{updated_at}"}}
+  #players{data: {updated_at: "#{updated_at}"}}

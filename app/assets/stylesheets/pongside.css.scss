@@ -46,7 +46,7 @@ body.fullscreen{
 }
 
 .fullscreen-container{
-  padding-top: 70px;
+  padding-top: 40px;
 }
 .rounded-box{
   -webkit-border-radius: 20px;
@@ -58,12 +58,13 @@ body.fullscreen{
 }
 .player{
   padding: 10px;
+  background-color: rgba(255,255,255,.5);
 }
 .country-name{
   font-size: 60px;
   font-weight: bold;
   overflow: hidden;
-  color: white;
+  color: black;
 }
 .match-title{
   padding: 0;
@@ -82,7 +83,7 @@ body.fullscreen{
 .match-score-left{
   font-size: 150px;
   line-height: 160px;
-  color: blue;
+  color: green;
   background-color: white;
   text-align: center;
   font-weight: bold;
@@ -96,7 +97,7 @@ body.fullscreen{
 .match-score-right{
   font-size: 150px;
   line-height: 160px;
-  color: blue;
+  color: green;
   background-color: white;
   text-align: center;
   font-weight: bold;
@@ -110,7 +111,7 @@ body.fullscreen{
 .score {
   font-size: 360px;
   line-height: 300px;
-  color: white;
+  color: green;
   font-weight: bold;
   margin-top: 30px;
   padding: 0;
@@ -124,8 +125,8 @@ body.fullscreen{
   font-size: 100px;
   line-height: 100px;
   padding: 0px !important;
-  color: white;
-  letter-spacing: -12px;
+  color: black;
+  letter-spacing: -10px;
 }
 
 .flag img{
@@ -242,6 +243,27 @@ body.fullscreen{
   text-align: center;
 }
 
+#running-match-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
+
+  background-image: image-url("previous_match.jpg");
+  background-repeat: no-repeat;
+}
+
+#previous-match-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
+
+  background-image: image-url("previous_match.jpg");
+  background-repeat: no-repeat;
+}
 
 .previous-logo {
   padding: 0;
@@ -263,45 +285,153 @@ body.fullscreen{
 
 .previous-title h1{
   margin: 0;
-  margin-top: 320px;
+  margin-top: 20px;
   padding: 0;
-  font-size: 70px;
-  line-height: 80px;
+  font-size: 90px;
+  line-height: 100px;
   font-weight: bold;
   text-align: center;
-  color: aqua;
+  /* color: aqua; */
+  color: black;
   font-weight: normal;
-  background-color: black;
+  background-color: rgba(255,255,255,.50);
   position: absolute;
   width: 100%;
   left: 0;
   top: 0;
 }
 
-.winner{
-  margin-top: 380px;
-  margin-bottom: 20px;
+.winner h1{
+  margin-top: 130px;
+  color: white;
+  font-size: 140px;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  text-align: center;
+  font-weight: bold;
 }
+#top-name {
+  position:absolute;
+  top: 730px;
+  left: 45px;
+  color: black;
+  font-size: 65px;
+  min-height: 135px;
+  max-height: 135px;
+  min-width: 570px;
+  max-width: 570px;
+  padding: 20px;
+}
+#top-flag {
+  position:absolute;
+  top: 730px;
+  left: 610px;
+  color: black;
+  font-size: 65px;
+  min-height: 136px;
+  max-height: 136px;
+  min-width: 260px;
+  max-width: 260px;
+  overflow: hidden;
+}
+#top-flag img{
+  width: 110%;
+}
+table#top-scores {
+  position:absolute;
+  top: 730px;
+  left: 884px;
+  background-color: transparent;
+  color: black;
+  font-size: 65px;
+  min-height: 135px;
+  max-height: 135px;
+  border-collapse: separate;
+  border-spacing: 11px 0px;
+}
+#top-scores td {
+  width: 130px;
+  padding: 20px;
+  text-align: center;
+}
+
+#bottom-name {
+  position:absolute;
+  top: 895px;
+  left: 45px;
+  color: black;
+  font-size: 65px;
+  min-height: 135px;
+  max-height: 135px;
+  min-width: 570px;
+  max-width: 570px;
+  padding: 20px;
+}
+#bottom-flag {
+  position:absolute;
+  top: 894px;
+  left: 610px;
+  color: black;
+  font-size: 65px;
+  min-height: 136px;
+  max-height: 136px;
+  min-width: 260px;
+  max-width: 260px;
+  overflow: hidden;
+}
+#bottom-flag img{
+  width: 110%;
+}
+table#bottom-scores {
+  position:absolute;
+  top: 894px;
+  left: 884px;
+  background-color: transparent;
+  color: black;
+  font-size: 65px;
+  min-height: 135px;
+  max-height: 135px;
+  border-collapse: separate;
+  border-spacing: 11px 0px;
+}
+#bottom-scores td {
+  width: 130px;
+  padding: 20px;
+  text-align: center;
+}
+
+
+
+
+
+
 .winner-name{
   font-size: 3em;
-  color: yellow;
+  color: black;
   overflow: hidden;
   font-weight: bold;
 }
 .winner-name small{
-  color: white;
+  color: black;
 }
 .winner-score{
   font-size: 11em;
-  color: yellow;
+  color: black;
+  background-color: rgba(255,255,255,.50);
 }
+
 .loser-name{
   font-size: 3em;
   overflow: hidden;
-  color: white;
+  color: black;
   font-weight: bold;
 }
 .loser-score{
   font-size: 11em;
+  color: black;
+  background-color: rgba(255,255,255,.50);
 }
+
 

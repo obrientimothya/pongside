@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20150410051029) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "banners", force: true do |t|
     t.string   "name"
     t.string   "banner"
@@ -32,9 +29,9 @@ ActiveRecord::Schema.define(version: 20150410051029) do
     t.datetime "updated_at"
   end
 
-  add_index "games", ["game_number"], name: "index_games_on_game_number", using: :btree
-  add_index "games", ["match_id", "game_number"], name: "index_games_on_match_id_and_game_number", unique: true, using: :btree
-  add_index "games", ["match_id"], name: "index_games_on_match_id", using: :btree
+  add_index "games", ["game_number"], name: "index_games_on_game_number"
+  add_index "games", ["match_id", "game_number"], name: "index_games_on_match_id_and_game_number", unique: true
+  add_index "games", ["match_id"], name: "index_games_on_match_id"
 
   create_table "matches", force: true do |t|
     t.string   "a_first_name"
@@ -66,11 +63,11 @@ ActiveRecord::Schema.define(version: 20150410051029) do
     t.string   "title"
   end
 
-  add_index "matches", ["is_over"], name: "index_matches_on_is_over", using: :btree
-  add_index "matches", ["is_running"], name: "index_matches_on_is_running", using: :btree
-  add_index "matches", ["player_a_id"], name: "index_matches_on_player_a_id", using: :btree
-  add_index "matches", ["player_b_id"], name: "index_matches_on_player_b_id", using: :btree
-  add_index "matches", ["table_id"], name: "index_matches_on_table_id", using: :btree
+  add_index "matches", ["is_over"], name: "index_matches_on_is_over"
+  add_index "matches", ["is_running"], name: "index_matches_on_is_running"
+  add_index "matches", ["player_a_id"], name: "index_matches_on_player_a_id"
+  add_index "matches", ["player_b_id"], name: "index_matches_on_player_b_id"
+  add_index "matches", ["table_id"], name: "index_matches_on_table_id"
 
   create_table "players", force: true do |t|
     t.string   "code"
@@ -89,6 +86,6 @@ ActiveRecord::Schema.define(version: 20150410051029) do
     t.integer  "banner_id"
   end
 
-  add_index "tables", ["banner_id"], name: "index_tables_on_banner_id", using: :btree
+  add_index "tables", ["banner_id"], name: "index_tables_on_banner_id"
 
 end

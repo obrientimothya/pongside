@@ -44,6 +44,17 @@ body.fullscreen{
   width: 1920px;
   height: 1080px;
 }
+.banner-message {
+  position: absolute;
+  top: 900px;
+  left: 0px;
+  width: 100%;
+  font-size: 90px;
+  font-weight: bold;
+  text-align: center;
+  color: black;
+  background-color: rgba(255,255,255,.50);
+}
 
 .fullscreen-container{
   padding-top: 40px;

@@ -19,4 +19,7 @@
 - else
   .banner
     = image_tag image_path @table.banner.banner.url
+  - unless @table.banner_message.blank?
+    .banner-message
+      = truncate @table.banner_message, length: 35, omission: '.'
   #players{data: {updated_at: "#{updated_at}"}}

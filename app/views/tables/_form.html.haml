@@ -13,8 +13,11 @@
     = f.label :reverse_ends
     = f.check_box :reverse_ends
   .field
-    = f.label :banner_id, "Banner Image"
+    = f.label :banner_id, "Activate Banner"
     = f.collection_select :banner_id, Banner.all, :id, :name, include_blank: "<no banner>"
+  .field
+    = f.label :banner_message, "Banner Message (optional)"
+    = f.text_field :banner_message
   %p
     .actions
       = f.submit 'Save'

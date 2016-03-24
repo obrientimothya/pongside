@@ -22,4 +22,5 @@
   - unless @table.banner_message.blank?
     .banner-message
       = truncate @table.banner_message, length: 35, omission: '.'
+  - updated_at = @table.updated_at.to_s
   #players{data: {updated_at: "#{updated_at}"}}

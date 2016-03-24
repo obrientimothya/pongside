@@ -9,6 +9,6 @@ var lastUpdatedAt = $("#players").data("updated-at");
   matchUpdatedAt = "1981-08-17 00:00:00 UTC";
 <% end %>
 
-if ( (matchUpdatedAt > lastUpdatedAt) || ("<%= @table.updated_at %>" > lastUpdatedAt) ){
+if ( (matchUpdatedAt > lastUpdatedAt) || ("<%= @table.updated_at.to_s %>" > lastUpdatedAt) ){
   $("#table").html("<%= j render("tables/show_content")%>");
 }

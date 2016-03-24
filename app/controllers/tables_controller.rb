@@ -58,6 +58,14 @@ class TablesController < ApplicationController
   def update
     respond_to do |format|
       if @table.update(table_params)
+
+        # force related running match to refresh
+        if @table.banner_id.blank?
+          @table.matches.where(is_running: true).each do |match|
+            match.touch
+          end
+        end
+
         format.html { redirect_to tables_path, notice: 'Table was successfully updated.' }
         format.json { render action: 'show', status: :ok, location: @table }
       else

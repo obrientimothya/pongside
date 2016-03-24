@@ -3,10 +3,13 @@ var matchUpdatedAt = "<%= Time.zone.now.to_s %>";
   matchUpdatedAt = "<%= @match.updated_at.to_s %>";
 <% end %>
 var lastUpdatedAt = $("#players").data("updated-at");
+<% unless @table.banner_id.blank? %>
+matchUpdatedAt = "1981-08-17 00:00:00 UTC";
+<% end %>
 var tableUpdatedAt = "<%= @table.updated_at.to_s %>";
 
 // welome screen don't refresh until match
-<% if Match.count == 0 && Match.where(is_running: true).count == 0 && Match.where(is_over: true).count == 0 %>
+<% if Match.where(is_running: true).count == 0 && Match.where(is_over: true).count == 0 %>
   matchUpdatedAt = "1981-08-17 00:00:00 UTC";
 <% end %>
 
